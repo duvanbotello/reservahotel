@@ -1,5 +1,5 @@
 <!-- Inicio Contenedor -->
- <div class="container">
+<div class="container">
 
     <div class="row mt-5 pt-4">
         <div class="col-md-4 "></div>
@@ -7,34 +7,30 @@
             <!-- Inicio jumbotron -->
             <div class="jumbotron text-center">
                 <h2>Hotel El Alamo</h2>
-                <img width="200" height="200" class="img-thumbnail rounded-circle " src="http://localhost/profesional/Resource/images/login.png"
-                    alt="...">
+                <img width="200" height="200" class="img-thumbnail rounded-circle "
+                    src="http://localhost/profesional/Resource/images/login.png" alt="...">
                 <hr class="">
                 <!-- Inicio Formulario Login -->
-                <form class="form">
+                <form class="form" id="formIniciarSesion" method="POST">
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text far fa-user"></div>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="Usuario/Correo">
+                        <input type="text" class="form-control" id="email" placeholder="Corre Electronico">
                     </div>
 
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text fas fa-key"></div>
                         </div>
-                        <input type="text" class="form-control" id="contraseña" placeholder="Contraseña">
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
                     </div>
 
-                    <div class="form-check mb-2 mr-sm-2">
-                        <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                        <label class="form-check-label" for="inlineFormCheck">
-                            Recordar contraseña...
-                        </label>
+                    <div class="pt-3">
+                        <a class="btn btn-outline-dark mb-2" onclick="iniciarSesion();">Iniciar Sesion</a>
+                        <a class="btn btn-outline-primary mb-2" onclick="CrearCuenta();">Crear Cuenta</a>
                     </div>
 
-                    <button type="submit" class="btn btn-outline-dark mb-2">Iniciar Session</button>
-                    <button type="submit" class="btn btn-outline-primary mb-2">Crear Cuenta</button>
                 </form>
                 <!-- fin Formulario Login -->
             </div>

@@ -1,7 +1,7 @@
 <?php
     class Errors {
         public function error(){
-            echo "Error";
+            echo "Error al cargar controladores";
         }
     }
  

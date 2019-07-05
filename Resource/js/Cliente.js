@@ -3,19 +3,20 @@ class Cliente{
 
     }
     //metodo loginUser
-    loginUser(email, password){
+    iniciarSesion(email, password){
+      
         //verifica que el campo email contenga datos.
         if(email == ""){
             //el .focus útil para posicionarnos en un campo concreto de un formulario, ya sea al principio del formulario 
             //o por validaciones que vayamos haciendo y que nos hagan ir a otro campo del formulario.
             document.getElementById("email").focus();
             //toast para mandar mensajes
-            M.toast({ html: 'Ingrese el email', classes: 'rounded'});
+            toastr.error('Ingrese Correo Electronico.');
         }else{
             //si el campo del email tiene datos verifica el de la pasword
             if(password == ""){
                 document.getElementById("password").focus();
-                M.toast({ html: 'Ingrese el Password', classes: 'rounded'});
+                toastr.error('Ingrese Contraseña.');
             }else{
                 //valida utilizan la funcion validarEmail que esta en Funciones 
                 //verificar si el email es valido
@@ -38,8 +39,7 @@ class Cliente{
                                     window.location.href = URL + "Principal/principal";
                                 }else{
                                     //de lo contrario mostramos un mensaje de error
-                                    document.getElementById("indexMessage").innerHTML = "Email o Contraseña Incorrectos";
-
+                                    toastr.error('Email o Contraseña Incorrectos.');
                                 }
                             }catch(error){
                                 //por si susece algun error en el proceimiento
@@ -48,11 +48,11 @@ class Cliente{
                         });
                     }else{
                         document.getElementById("password").focus();
-                        M.toast({ html: 'Introducce al menos 6 caracteres en su contraseña', classes: 'rounded'});
+                        toastr.error('Introducce al menos 6 caracteres en su contraseña.');
                     }
                 }else{
                      document.getElementById("email").focus();
-                     M.toast({ html: 'Ingrese Una Direccion de Correo Valida.', classes: 'rounded'});
+                     toastr.error('Ingrese Una Direccion de Correo Valida.');        
                 }       
             }
         }
