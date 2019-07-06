@@ -7,9 +7,9 @@ class  Views{
         $controllers = get_class($controller);
         
         //optenemos las vistas del head atraves de la constantes de config
-        require VIEWS.DFT."head.html";
+        
         require VIEWS.$controllers.'/'.$view.'.html';
-        require VIEWS.DFT."footer.html";
+       
     }
 }
 ?>

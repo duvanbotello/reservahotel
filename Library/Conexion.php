@@ -3,7 +3,8 @@
 class Conexion{
     function __construct(){
         //ejecutamos la clase QueryManager
-        $this->db = new QueryManager("root","","hotelalamo");
+        $this->db = new QueryManager('root','','hotelalamo');
+       
     }
 }
 ?>

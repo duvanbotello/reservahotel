@@ -5,6 +5,7 @@
     //otra forma de declarar constantes utilizando la funcion define revise por parametro el nombre
     //de la variable y el valor de la constante
     define('DFT', 'Default/');
+    define('PCP', 'Principal/');
     define('RQ','Resource/');
     define('URL','http://localhost/profesional/');
 ?>

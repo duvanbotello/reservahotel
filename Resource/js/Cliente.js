@@ -25,15 +25,20 @@ class Cliente{
                         //para enviar nuestros datos por post al servidor
                         //le enviamos como parametro la ruta del controlador
                         //y optenemos respuesta atraves de response.
+                        
                         $.post("Index/userLogin", {email,password}, (response)=>{
+                            console.log('hola')
                             console.log(response);
                             try{
+                                
                                 //paso los datos del vector response que envian desde el servidor
                                 //con JSON para manejarlos en la vista.
+                                
                                 var item = JSON.parse(response);
                                 //Verifico que el idUsuario sea mayor a 0 para verificar que el inicio de 
                                 //session sea valido.
-                                if(0 < item.IdUsuario){
+                                
+                                if(0 < item.idcliente){
                                     //si el inicio de session es correcto lo enviamos al controlador Principal
                                     //para que abra la vista principal
                                     window.location.href = URL + "Principal/principal";
@@ -43,7 +48,8 @@ class Cliente{
                                 }
                             }catch(error){
                                 //por si susece algun error en el proceimiento
-                                document.getElementById("indexMessage").innerHTML = response;
+                                toastr.error('problemas.');
+                                
                             }
                         });
                     }else{

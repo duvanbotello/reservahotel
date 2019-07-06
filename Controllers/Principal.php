@@ -5,7 +5,10 @@ class Principal extends Controllers{
         parent::__construct();
     }
     public function principal(){
-        $this->view->render($this,"principal");
+        require VIEWS.DFT."head.html";
+        require VIEWS.DFT."headerprinci.html";
+        $this->view->render($this,"principalcliente");
+        require VIEWS.DFT."footer.html";
     }
 }
 ?>
