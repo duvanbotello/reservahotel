@@ -5,7 +5,7 @@ class Registrar extends Controllers
     function __construct()
     {   
         parent::__construct();
-        $this->getTipoDocumento();
+        
     }
     public function registrar()
     {

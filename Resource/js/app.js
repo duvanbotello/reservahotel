@@ -13,15 +13,32 @@ var iniciarSesion = () =>{
     cliente.iniciarSesion(email,password);
 }
 
+var sessionClose = () =>{
+  alert("salir");
+  cliente.sessionCLose();
+}
+
 var vistraRegistrar = () =>{
   registrar2.vistraRegistrar();
+  registrar2.getRoles();
 }
+
+var restablecerRegistro = () =>{
+  registrar2.getRoles();
+}
+
+
 
 
 //utilizando jquery
 $().ready(()=>{
   //capturamos los datos que estamos pasando por la URL del navegador
   let URLactual = window.location.pathname;
+  let URLactual2 = window.location;
   //llamamos a metodo userData de Usuarios.js
   cliente.userData(URLactual);
+  //cargando SELECT HTML
+  if(URLactual2 == URL + "Registrar/registrar"){
+    registrar2.getRoles();
+  }
 });
