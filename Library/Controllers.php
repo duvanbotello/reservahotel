@@ -4,6 +4,8 @@ class Controllers
 {
     //Metodo Contructor
     public function __construct(){
+        //iniciando variables de sesion
+        Session::star();
         //instancio la clase Views para poder utilizar el metodo Render
         $this->view = new Views();
         $this->loadClassmodels();

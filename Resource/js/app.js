@@ -12,6 +12,7 @@ var iniciarSesion = () =>{
     cliente.iniciarSesion(email,password);
 }
 
+
 //utilizando jquery
 $().ready(()=>{
 
