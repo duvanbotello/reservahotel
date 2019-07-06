@@ -20,6 +20,7 @@ class Cliente {
             } else {
                 //valida utilizan la funcion validarEmail que esta en Funciones 
                 //verificar si el email es valido
+                
                 if (validarEmail(email)) {
                     if (6 <= password.length) {
                         //para enviar nuestros datos por post al servidor
@@ -27,8 +28,6 @@ class Cliente {
                         //y optenemos respuesta atraves de response.
 
                         $.post("Index/userLogin", { email, password }, (response) => {
-                            console.log('hola')
-                            console.log(response);
                             try {
 
                                 //paso los datos del vector response que envian desde el servidor

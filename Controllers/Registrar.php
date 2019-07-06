@@ -3,8 +3,9 @@
 class Registrar extends Controllers
 {
     function __construct()
-    {
+    {   
         parent::__construct();
+        $this->getTipoDocumento();
     }
     public function registrar()
     {
@@ -20,6 +21,15 @@ class Registrar extends Controllers
             require VIEWS . DFT . "head.html";
             $this->view->render($this, "registrar");
             require VIEWS . DFT . "footer.html";
+        }
+    }
+    function getTipoDocumento()
+    {
+        $data = $this->model->getTipoDocumento();
+        if (is_array($data)) {
+            echo json_encode($data);
+        } else {
+            echo $data;
         }
     }
 }

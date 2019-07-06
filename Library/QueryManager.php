@@ -33,7 +33,8 @@
             //ejecuto el query
             $sth->execute($param);
             //guardo todos los datos de la consulta dentro de un array
-            $response = $sth->fetch(PDO::FETCH_ASSOC);
+            $response = $sth->fetchALL(PDO::FETCH_ASSOC);
+            
             //retorno un array con el resultado
             return array("results" => $response);
         }catch(PDOExepcion $e){

@@ -19,17 +19,20 @@ class Index_model extends Conexion
         //verifico si se devolvio un arrat
         if (is_array($response)) {
             //le coloco un index al array llamado results
+            
             $response = $response['results'];
+            
+           
             //verifico que el password enviado desde la vista se igual al almacenado en la BD
-            if (password_verify($password, $response["contrasena"])) {
+            if (password_verify($password, $response[0]["contrasena"])) {
                 //si es correcto retorno un array con los datos del usuario.
                 $data = array(
-                    "idcliente" => $response["idcliente"],
-                    "num_documento" => $response["num_documento"],
-                    "nombre" => $response["nombre"],
-                    "apellido" => $response["apellido"],
-                    "tipo_documento" => $response["tipo_documento"],
-                    "tipo_cliente" => $response["tipo_cliente"],
+                    "idcliente" => $response[0]["idcliente"],
+                    "num_documento" => $response[0]["num_documento"],
+                    "nombre" => $response[0]["nombre"],
+                    "apellido" => $response[0]["apellido"],
+                    "tipo_documento" => $response[0]["tipo_documento"],
+                    "tipo_cliente" => $response[0]["tipo_cliente"],
                 );
                 //creo una variable de session y envio los datos del usuario
                 Session::setSession("User", $data);
