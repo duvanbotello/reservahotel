@@ -26,17 +26,18 @@ class Cliente {
                         //para enviar nuestros datos por post al servidor
                         //le enviamos como parametro la ruta del controlador
                         //y optenemos respuesta atraves de response.
-
+                        
                         $.post("Index/userLogin", { email, password }, (response) => {
                             try {
-
+                               
                                 //paso los datos del vector response que envian desde el servidor
                                 //con JSON para manejarlos en la vista.
-
+                                
                                 var item = JSON.parse(response);
+                                
                                 //Verifico que el idUsuario sea mayor a 0 para verificar que el inicio de 
                                 //session sea valido.
-
+                               
                                 if (0 < item.idcliente) {
                                     //el metodo localstore nos permite crear elementos para almacenarlos 
                                     //en la memoria de nuestro navegador
@@ -47,11 +48,11 @@ class Cliente {
                                     window.location.href = URL + "Principal/principal";
                                 } else {
                                     //de lo contrario mostramos un mensaje de error
-                                    toastr.error('Email o Contraseña Incorrectos.');
+                                    toastr.error('Contraseña Incorrecto.');
                                 }
                             } catch (error) {
                                 //por si susece algun error en el proceimiento
-                                toastr.error('problemas.');
+                                toastr.error('Email No registrado');
 
                             }
                         });

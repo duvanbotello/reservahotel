@@ -1,73 +1,77 @@
 <div class="container">
 
-        <div class="card mt-5">
-            <h5 class="card-header text-center">Registro de Cliente</h5>
-            <div class="card-body">
-                <form class="m-5">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">*Ingresar Nombre:</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Nombres">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">*Ingresar Apellido:</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Apellidos">
-                        </div>
+    <div class="card mt-5">
+        <h5 class="card-header text-center">Registro de Cliente</h5>
+        <div class="card-body">
+            <form class="m-5">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">*Ingresar Nombre:</label>
+                        <input type="text" class="form-control" id="c_nombre" placeholder="Nombres" required>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Telefono:</label>
-                            <input type="number" class="form-control" id="inputEmail4" placeholder="Telefono">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">*Direccion:</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Direccion">
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">*Ingresar Apellido:</label>
+                        <input type="text" class="form-control" id="c_apellido" placeholder="Apellidos" required>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputState">Tipo Documento: </label>
-                            <select id="TipoDocumento" class="form-control">
-                                
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">*Ingrese Documento:</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Documento">
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Telefono:</label>
+                        <input type="number" class="form-control" id="c_telefono" placeholder="Telefono" required>
                     </div>
-                    <div class="card">
-                        <h5 class="card-header">Datos de Usuario</h5>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Usuario:</label>
-                                    <input type="number" class="form-control" id="inputEmail4" placeholder="Usuario">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">*Correo:</label>
-                                    <input type="text" class="form-control" id="inputPassword4" placeholder="Correo">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Contraseña:</label>
-                                    <input type="password" class="form-control" id="inputEmail4"
-                                        placeholder="Contraseña">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">*Repetir Contraseña:</label>
-                                    <input type="pasword" class="form-control" id="inputPassword4"
-                                        placeholder="Repetir Contraseña">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">*Direccion:</label>
+                        <input type="text" class="form-control" id="c_direccion" placeholder="Direccion" required>
                     </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Tipo Documento: </label>
+                        <select id="TipoDocumento" class="form-control">
 
-                     <div class="text-center">
-                            <a onclick="restablecerRegistro()" class="btn btn-primary mt-4">Registrar</a> 
-                     </div>
-                </form>
-            </div>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">*Ingrese Documento:</label>
+                        <input type="number" class="form-control" id="c_documento" placeholder="Documento" required>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 class="card-header">Datos de Usuario</h5>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Usuario:</label>
+                                <input type="text" class="form-control" id="c_usuario" placeholder="Usuario" nkeypress="return soloLetras(event)" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">*Correo:</label>
+                                <input type="text" class="form-control" id="c_correo" placeholder="Correo" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Contraseña:</label>
+                                <input type="password" class="form-control" id="c_contrasena1" 
+                                onkeyup="alerta1()" placeholder="Contraseña" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">*Repetir Contraseña:</label>
+                                <input type="password" class="form-control" id="c_contrasena2"
+                                    placeholder="Repetir Contraseña" onkeyup="alerta1()" required>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning alert-dismissible fade show" id="Alerta1" style="display: none">
+                            <strong>Alerta!!</strong> La contraseña No coinciden...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a onclick="registrar()" class="btn btn-primary mt-4">Registrar</a>
+                </div>
+            </form>
         </div>
     </div>
+</div>
