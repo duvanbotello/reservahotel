@@ -63,11 +63,18 @@ class Registrar {
                                                                 data.append('usuario', usuario);
                                                                 data.append('correo', correo);
                                                                 data.append('contrasena', contrasena1);
-                                                                $.Ajax({
-                                                                    url: URL + ""
+                                                                $.ajax({
+                                                                    url: URL + "Registrar/registrarusuario",
+                                                                    data: data,
+                                                                    cache: false,
+                                                                    contentType: false,
+                                                                    processData: false,
+                                                                    type: 'POST',
+                                                                    success: (response) =>{
+                                                                        toastr.error(response);
+                                                                        ocument.getElementById("c_correo").focus();
+                                                                    }
                                                                 });
-
-
 
                                                             } else {
                                                                 toastr.error('Las contraseñas deben Coincidir.');

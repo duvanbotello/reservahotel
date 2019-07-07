@@ -23,6 +23,16 @@ class Registrar extends Controllers
             require VIEWS . DFT . "footer.html";
         }
     }
+    public function registrarusuario(){
+        $data = $this ->model->registrarusuario($_POST["nombre"],$_POST["apellido"],
+        $_POST["telefono"],$_POST["direccion"],$_POST["tipodoc"],$_POST["documento"],
+        $_POST["usuario"],$_POST["correo"],$_POST["contraseña"]);
+        if($data == 1){
+            echo "EL email ya esta registrado...";
+        }else{
+            echo $data;
+        }
+    }
     function getTipoDocumento()
     {
         $data = $this->model->getTipoDocumento();
