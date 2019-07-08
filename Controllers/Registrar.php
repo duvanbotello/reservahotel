@@ -26,9 +26,11 @@ class Registrar extends Controllers
     public function registrarusuario(){
         $data = $this ->model->registrarusuario($_POST["nombre"],$_POST["apellido"],
         $_POST["telefono"],$_POST["direccion"],$_POST["tipodoc"],$_POST["documento"],
-        $_POST["usuario"],$_POST["correo"],$_POST["contraseña"]);
+        $_POST["usuario"],$_POST["correo"],$_POST["contrasena"]);
         if($data == 1){
             echo "EL email ya esta registrado...";
+        }else if($data == 2){
+            echo "Su registro se a completado con Exito..";
         }else{
             echo $data;
         }

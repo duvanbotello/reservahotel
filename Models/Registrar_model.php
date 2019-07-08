@@ -22,26 +22,29 @@ class Registrar_model extends Conexion
             if(0 == count($response)){
                 //creando clase anonimas
                 //solo se utilizara una ves
-                $usuario = new class($nombre,$apellido,$telefono,$direccion,
-                $tipodoc,$documento,$usuario,$correo,$contrasena){
-                    private $num_documento;
-                    private $nombre;
-                    private $apellido;
-                    private $direccion;
-                    private $correo;
-                    private $usuario;
-                    private $contrasena;
-                    private $tipo_documento;
-                    private $tipo_cliente;
-                    function __construct(){
-                        $this->num_documento = $documento;
-                        
-                    }
-                };
+                $tipodoc = (int) $tipodoc;
+                $where = "correo = :Correo";
+                $attr = "(num_documento,nombre,apellido,direccion,correo,usuario,contrasena,tipo_documento,tipo_cliente)";
+                $values = "(:Num_documento,:Nombre,:Apellido,:Direccion,:Correo,:Usuario,:Contrasena,:Tipo_documento,:Tipo_cliente)";
+                $password = password_hash($contrasena, PASSWORD_DEFAULT);
+                $param = null;
+                $param = array('Num_documento' => $documento,
+                               'Nombre' => $nombre,
+                               'Apellido' => $apellido,
+                               'Direccion' => $direccion,
+                               'Correo' => $correo,
+                               'Usuario' => $usuario,
+                               'Contrasena' => $password,
+                               'Tipo_documento' => (int)$tipodoc,
+                               'Tipo_cliente' => '1');
+
+                $respuestaInsert = $this->db->insert($attr,'cliente', $values, $param);
+                return $respuestaInsert;
+                
             }else{
                 return 1;
             }
-        }else{
+        }else{//envia error si se presento inconveniente en la consulta
             return $response;
         }
     }

@@ -13,7 +13,7 @@ class Cliente {
             //toast para mandar mensajes
             toastr.error('Ingrese Correo Electronico.');
         } else {
-            //si el campo del email tiene datos verifica el de la pasword
+            //si el campo del email tieLone datos verifica el de la pasword
             if (password == "") {
                 document.getElementById("password").focus();
                 toastr.error('Ingrese Contraseña.');
@@ -22,7 +22,7 @@ class Cliente {
                 //verificar si el email es valido
                 
                 if (validarEmail(email)) {
-                    if (6 <= password.length) {
+                   
                         //para enviar nuestros datos por post al servidor
                         //le enviamos como parametro la ruta del controlador
                         //y optenemos respuesta atraves de response.
@@ -56,10 +56,7 @@ class Cliente {
 
                             }
                         });
-                    } else {
-                        document.getElementById("password").focus();
-                        toastr.error('Introducce al menos 6 caracteres en su contraseña.');
-                    }
+                    
                 } else {
                     document.getElementById("email").focus();
                     toastr.error('Ingrese Una Direccion de Correo Valida.');

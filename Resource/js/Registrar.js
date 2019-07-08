@@ -4,6 +4,7 @@ class Registrar {
     }
 
     registrar(nombre, apellido, telefono, direccion, tipodoc, documento, usuario, correo, contrasena1, contrasena2) {
+
         if (nombre == '') {
             toastr.error('Ingrese Nombres.');
             document.getElementById("c_nombre").focus();
@@ -70,9 +71,14 @@ class Registrar {
                                                                     contentType: false,
                                                                     processData: false,
                                                                     type: 'POST',
-                                                                    success: (response) =>{
-                                                                        toastr.error(response);
-                                                                        ocument.getElementById("c_correo").focus();
+                                                                    success: (response) => {
+                                                                        if (response == 'EL email ya esta registrado...') {
+                                                                            toastr.error(response);
+                                                                            ocument.getElementById("c_correo").focus();
+                                                                        } else {
+                                                                            toastr.success(response, 'Bienvenido', { timeOut: 5000 });
+                                                                            document.getElementById("formularioRegistro").reset();
+                                                                        }
                                                                     }
                                                                 });
 
