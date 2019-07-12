@@ -22,8 +22,8 @@ class Registrar_model extends Conexion
             if(0 == count($response)){
                 //creando clase anonimas
                 //solo se utilizara una ves
+                
                 $tipodoc = (int) $tipodoc;
-                $where = "correo = :Correo";
                 $attr = "(num_documento,nombre,apellido,direccion,correo,usuario,contrasena,tipo_documento,tipo_cliente)";
                 $values = "(:Num_documento,:Nombre,:Apellido,:Direccion,:Correo,:Usuario,:Contrasena,:Tipo_documento,:Tipo_cliente)";
                 $password = password_hash($contrasena, PASSWORD_DEFAULT);

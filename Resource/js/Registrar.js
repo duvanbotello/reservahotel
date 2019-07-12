@@ -52,6 +52,7 @@ class Registrar {
                                                             toastr.error('Ingresar Contraseña 2.');
                                                             document.getElementById("c_contrasena2").focus();
                                                         } else {
+                                                        
                                                             if (this.verificandopasswrod2(contrasena1, contrasena2)) {
                                                                 //creamos una coleccion de objetos para enviarlos al servidor 
                                                                 var data = new FormData();
@@ -64,6 +65,7 @@ class Registrar {
                                                                 data.append('usuario', usuario);
                                                                 data.append('correo', correo);
                                                                 data.append('contrasena', contrasena1);
+                                                               
                                                                 $.ajax({
                                                                     url: URL + "Registrar/registrarusuario",
                                                                     data: data,
@@ -72,11 +74,12 @@ class Registrar {
                                                                     processData: false,
                                                                     type: 'POST',
                                                                     success: (response) => {
-                                                                        if (response == 'EL email ya esta registrado...') {
-                                                                            toastr.error(response);
+                                                                        toastr.error(response);
+                                                                        if (response == 1) {
+                                                                            toastr.error('EL email ya esta registrado...');
                                                                             ocument.getElementById("c_correo").focus();
-                                                                        } else {
-                                                                            toastr.success(response, 'Bienvenido', { timeOut: 5000 });
+                                                                        } else if(response == 2) {
+                                                                            toastr.success('Su registro se a completado con Exito..', 'Bienvenido', { timeOut: 5000 });
                                                                             document.getElementById("formularioRegistro").reset();
                                                                         }
                                                                     }

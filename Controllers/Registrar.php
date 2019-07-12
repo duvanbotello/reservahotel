@@ -28,9 +28,9 @@ class Registrar extends Controllers
         $_POST["telefono"],$_POST["direccion"],$_POST["tipodoc"],$_POST["documento"],
         $_POST["usuario"],$_POST["correo"],$_POST["contrasena"]);
         if($data == 1){
-            echo "EL email ya esta registrado...";
+            echo 1;
         }else if($data == 2){
-            echo "Su registro se a completado con Exito..";
+            echo 2;
         }else{
             echo $data;
         }
