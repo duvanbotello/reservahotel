@@ -5,6 +5,10 @@ class Reserva_model extends Conexion
     {
         parent::__construct();   
     }
+
+    function getHabitacionesDisponibles(){
+        return $response = $this->db->getHabitaciones();;
+    }
  
 }
 ?>

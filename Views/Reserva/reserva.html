@@ -1,137 +1,111 @@
 <div id="servicios"></div>
-    <div class="color-header mt-2 container text-center">
-        <a class="text-white">Realizar Nueva Reserva</a>
-    </div>
-    <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                    aria-selected="true">Generar Reserva</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="row border">
-                    <div class="col-6 p-2">
-                        <img src="http://localhost/profesional/Diseno/images/slider/1.jpg" width="550" height="300" alt="">
-                    </div>
-                    <div class="col-6 p-2 border-left">
-                        <h1>Titulo</h1>
-                        <hr>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Harum modi error voluptate fugiat itaque facere architecto
-                            earum veniam quae cum perferendis nam quia, quam obcaecati, officia ea quas delectus
-                            cupiditate.</p>
-                    </div>
+<div class="color-header mt-2 container text-center">
+    <a class="text-white">Realizar Nueva Reserva</a>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Generar Reserva</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row border">
+                <div class="col-6 p-2">
+                    <img src="http://localhost/profesional/Diseno/images/slider/1.jpg" width="550" height="300" alt="">
                 </div>
-                <div class="pt-2">
-                    <form>
-                        <div class="form-row border pt-2">
-                            <div class="form-group col-md-6 text-center">
-                                <label for="inputEmail4">Seleccione Fecha Inicio:</label>
-                                <input class="form-contro" type="date" name="">
-                            </div>
-                            <div class="form-group col-md-6 text-center">
-                                <label for="inputEmail4">Seleccione Fecha Fin:</label>
-                                <input class="form-contro" type="date" name="">
-                            </div>
+                <div class="col-6 p-2 border-left">
+                    <h1>Titulo</h1>
+                    <hr>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Harum modi error voluptate fugiat itaque facere architecto
+                        earum veniam quae cum perferendis nam quia, quam obcaecati, officia ea quas delectus
+                        cupiditate.</p>
+                </div>
+            </div>
+            <div class="pt-2">
+                <form>
+                    <div class="form-row border pt-2">
+                        <div class="form-group col-md-6 text-center">
+                            <label for="inputEmail4">Seleccione Fecha Inicio:</label>
+                            <input class="form-contro" type="date" name="">
                         </div>
-                        <div class="form-row border mt-1 text-center">
-                            <!-- Button trigger modal -->
-                            <div class="form-group col-md-6 text-center">
-                                <button type="button" class="btn btn-primary mt-2 mb-2" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                    Seleccine Habitacion
-                                </button>
-                            </div>
-                            <div class="form-group col-md-6 text-center mt-2">
-                                <label for="inputEmail4">Codigo Habitacion:</label>
-                                <input class="form-contro" type="text" name="" disabled>
-                            </div>
+                        <div class="form-group col-md-6 text-center">
+                            <label for="inputEmail4">Seleccione Fecha Fin:</label>
+                            <input class="form-contro" type="date" name="">
+                        </div>
+                    </div>
+                    <div class="form-row border mt-1 text-center">
+                        <!-- Button trigger modal -->
+                        <div class="form-group col-md-6 text-center">
+                            <a onclick="getHabita()" data-target="#exampleModal" data-toggle="modal" class="btn btn-primary mt-2 mb-2 text-white">Seleccione Habitacion</a>
+
+                        </div>
+                        <div class="form-group col-md-6 text-center mt-2">
+                            <label for="inputEmail4">Codigo Habitacion:</label>
+                            <input class="form-contro" type="text" id="idhabitacion" name="" disabled>
+                        </div>
 
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Lista de Habitaciones</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row border">
-                                                <div class="col-6">
-                                                    <div class="m-1 border">
-                                                        <img class="img-fluid" src="http://localhost/profesional/Diseno/images/slider/1.jpg" width="400"
-                                                            height="200" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <a># Habitacion: 1</a>
-                                                    <br>
-                                                    <a>Precio: $300000.00000</a>
-                                                    <br>
-                                                    <a>Tipo Habitacion: Doble</a>
-                                                    <br> <br> <br> <br>
-                                                    <button type="button" class="btn btn-primary">Elegir</button>
-                                                </div>
-                                            </div>
-
-                                            <div class="row border">
-                                                <div class="col-6">
-                                                    <a># Habitacion: 2</a>
-                                                    <br>
-                                                    <a>Precio: $300.00000</a>
-                                                    <br>
-                                                    <a>Tipo Habitacion: Triple</a>
-                                                    <br> <br> <br> <br>
-                                                    <button type="button" class="btn btn-primary">Elegir</button>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="m-1 border">
-                                                        <img class="img-fluid" src="http://localhost/profesional/Diseno/images/slider/1.jpg" width="400"
-                                                            height="200" alt="">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Cancelar</button>
-                                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Lista de Habitaciones</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="containerhabitaciones">
+                                        <table  id="tabla_habitaciones" class="table table-responsive">
+                                            <thead>
+                                                <th>ID</th>
+                                                <th>Imagen</th>
+                                                <th>Numero Habitacion</th>
+                                                <th>Tipo Habitacion</th>
+                                                <th>Precio</th>
+                                                <th>Estado Habitacion</th>
+                                                <th>Opciones</th>
+                                            </thead>
+                                            <tbody id="cuerpo">
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row border mt-1">
-                            <div class="form-group col-md-4 text-center pt-2">
-                                <label for="inputEmail4">Total:</label>
-                                <input class="form-contro" type="text" name="" disabled>
-                            </div>
-                            <div class="form-group col-md-4 text-center pt-2">
-                                <label for="inputEmail4">Descuento:</label>
-                                <input class="form-contro" type="text" name="" disabled>
-                            </div>
-                            <div class="form-group col-md-4 text-center pt-2">
-                                <label for="inputEmail4">Total a Pagar:</label>
-                                <input class="form-contro" type="text" name="" disabled>
-                            </div>
+                    </div>
+                    <div class="form-row border mt-1">
+                        <div class="form-group col-md-4 text-center pt-2">
+                            <label for="inputEmail4">Total:</label>
+                            <input class="form-contro" type="text" name="" disabled>
                         </div>
+                        <div class="form-group col-md-4 text-center pt-2">
+                            <label for="inputEmail4">Descuento:</label>
+                            <input class="form-contro" type="text" name="" disabled>
+                        </div>
+                        <div class="form-group col-md-4 text-center pt-2">
+                            <label for="inputEmail4">Total a Pagar:</label>
+                            <input class="form-contro" type="text" name="" disabled>
+                        </div>
+                    </div>
 
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary mt-4">Confirmar Reserva</button>
-                            <button type="submit" class="btn btn-warning mt-4">Hacer Reserva</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-4">Confirmar Reserva</button>
+                        <button type="submit" class="btn btn-warning mt-4">Hacer Reserva</button>
+                    </div>
+                </form>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Como</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Estas</div>
         </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Como</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Estas</div>
     </div>
+</div>

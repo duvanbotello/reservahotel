@@ -49,16 +49,34 @@ class QueryManager
         $pdo = null;
     }
 
-    function insert($attr, $table, $values, $param){
+    function insert($attr, $table, $values, $param)
+    {
         try {
-            $query = "INSERT INTO ".$table." ".$attr." VALUES ". $values;
+            $query = "INSERT INTO " . $table . " " . $attr . " VALUES " . $values;
             $sth = $this->pdo->prepare($query);
-            if($sth->execute($param)){
+            if ($sth->execute($param)) {
                 return 2;
-            }else{
+            } else {
                 return $sth;
             }
+        } catch (PDOExepcion $e) {
+            return $e->getMessage();
+        }
+        $pdo = null;
+    }
 
+    function getHabitaciones()
+    {
+
+        try {
+            $query = "select h.idhabitaciones, i.url, h.numHabitacion, th.descripcion, th.precio, h.estado from habitaciones as h 
+                      inner join tipo_habitacion as th on h.tipo_habitacion  = th.idtipo_habitacion
+                      inner join images as i on h.idhabitaciones = i.idhabitaciones
+                    where h.estado = 2;";
+            $sth = $this->pdo->prepare($query);
+            $sth->execute();
+            $response = $sth->fetchALL(PDO::FETCH_ASSOC);
+            return array("results" => $response);
         } catch (PDOExepcion $e) {
             return $e->getMessage();
         }
