@@ -75,6 +75,7 @@ class Cliente {
             if (null != localStorage.getItem("user")) {
                 //convierto los datos del usuario que estan en el navegador en una coleccion de datos
                 let user = JSON.parse(localStorage.getItem("user"));
+                console.log(user.tipo_cliente);
                 if (0 < user.idcliente) {
                     //enviamos los datos al elemento con id name1
                     document.getElementById("name1").innerHTML = "Bienvenido, " + user.nombre + " " + user.apellido;

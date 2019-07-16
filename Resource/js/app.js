@@ -18,6 +18,35 @@ var getHabita = () => {
   reserva.getHabitaciones();
 }
 
+var Confirmareserva = () => {
+  let total = document.getElementById("total");
+  let descuento = document.getElementById("descuento");
+  let totalapagar = document.getElementById("totalapagar");
+  let dias = document.getElementById("numeroDiasReserva");
+  let fechainicio = document.getElementById("fechainicio");
+  let fechafin = document.getElementById("fechafin");
+  let codigoHabitacion = document.getElementById("idhabitacion");
+  let precioHabitacion = document.getElementById("precioHabitacion");
+  reserva.Confirmareserva(fechainicio, fechafin, codigoHabitacion, precioHabitacion, dias,total,descuento,totalapagar);
+}
+
+var HacerReserva = () => {
+  let total = document.getElementById("total").value;
+  let descuento = document.getElementById("descuento").value;
+  let totalapagar = document.getElementById("totalapagar").value;
+  let dias = document.getElementById("numeroDiasReserva").value;
+  let fechainicio = document.getElementById("fechainicio").value;
+  let fechafin = document.getElementById("fechafin").value;
+  let codigoHabitacion = document.getElementById("idhabitacion").value;
+  reserva.HacerReserva(fechainicio, fechafin, codigoHabitacion, dias,total,descuento,totalapagar);
+}
+
+var Misreservas = () => {
+ 
+  reserva.getMisReservas();
+  
+  
+}
 
 
 var registrar = () => {
@@ -42,9 +71,11 @@ var sessionClose = () => {
 
 var prueba = (this1) => {
   var valores = $(this1).parents("tr").find("td")[0].innerHTML;
+  var valores4 = $(this1).parents("tr").find("td")[4].innerHTML;
   var habitacion = document.getElementById("idhabitacion");
+  var preciohabitacion = document.getElementById("precioHabitacion");
   habitacion.value = valores;
-  
+  preciohabitacion.value = valores4;
 }
 
 var vistraRegistrar = () => {

@@ -32,7 +32,7 @@ class QueryManager
                 $query = " SELECT " . $attr . " FROM " . $table;
             } else {
                 //y si trae datos se hace la consulta con la restriccion
-                $query = "SELECT" . $attr . " FROM " . $table . " WHERE " . $where;
+                $query = "SELECT " . $attr . " FROM " . $table . " WHERE " . $where;
             }
             //utilizo la clase pdo para almacer el query en sth
             $sth = $this->pdo->prepare($query);
@@ -77,6 +77,19 @@ class QueryManager
             $sth->execute();
             $response = $sth->fetchALL(PDO::FETCH_ASSOC);
             return array("results" => $response);
+        } catch (PDOExepcion $e) {
+            return $e->getMessage();
+        }
+        $pdo = null;
+    }
+    function EstadoHabitacion($idhabitacion)
+    {
+
+        try {
+            $query = "UPDATE habitaciones SET estado = 1 WHERE idhabitaciones=$idhabitacion";
+            $sth = $this->pdo->prepare($query);
+            $sth->execute();
+            return $sth->execute();
         } catch (PDOExepcion $e) {
             return $e->getMessage();
         }

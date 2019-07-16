@@ -1,0 +1,43 @@
+<div id="servicios"></div>
+<div class="color-header mt-2 container text-center">
+    <a class="text-white">Lista de Reservas</a>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Lista de Reservas</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row border ">
+                <div class="col-1"></div>
+                <div class="col-10 p-2 ml-5">
+                    <div class="modal-body " id="containerhabitaciones">
+                        <table  id="tabla_habitaciones" class="table table-responsive table-striped ">
+                            <thead>
+                                <th>Codigo</th>
+                                <th>Fecha Entrada</th>
+                                <th>Fecha Salida</th>
+                                <th>Dias</th>
+                                <th>Costo</th>
+                                <th>Descuento</th>
+                                <th>Total</th>
+                                <th>Habitacion</th>
+                            </thead>
+                            <tbody id="cuerpoMisReservas">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Como</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Estas</div>
+    </div>
+</div>
