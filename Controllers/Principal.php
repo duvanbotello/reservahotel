@@ -32,4 +32,17 @@ class Principal extends Controllers
             header("Location:" . URL);
         }
     }
+    public function principalRecep()
+    {
+
+        if (null != Session::getSession("recep")) {
+            require VIEWS . DFT . "head.html";
+            require VIEWS . DFT . "headrecep.html";
+            $this->view->render($this, "principalrecep");
+            require VIEWS . DFT . "footer.html";
+        } else {
+            //redireccionamos el usuario a la vista login
+            header("Location:" . URL);
+        }
+    }
 }

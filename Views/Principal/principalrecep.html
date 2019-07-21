@@ -1,0 +1,131 @@
+<div class="container">
+    <hr>
+    <div class="row mt-3">
+      <div class="col-3 text-center">
+        <h5>Menu Administrativo</h5>
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+            href="#list-home" role="tab" aria-controls="home">Consultas</a>
+          <a class="list-group-item list-group-item-action" onclick="CargarTipoCliente()" id="list-profile-list"
+            data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Generar Reserva</a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+            href="#list-messages" role="tab" aria-controls="messages">Dibujar en Pantalla</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+            href="#list-settings" role="tab" aria-controls="settings">Eliminar Reserva</a>
+  
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="tab-content border" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+  
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-6">
+                <h4 class="text-center">Cambiar Precio Por Tipo de Habitacion</h4>
+                <div class="input-group">
+                  <select class="custom-select" id="tipohabitaciones">
+  
+                  </select>
+                  <div class="input-group-append">
+                    <a onclick="cambiarPrecioH()" class="btn btn-success text-white">Cambiar Precio</a>
+                  </div>
+                </div>
+                <div class="form-group mt">
+                  <label for="exampleInputEmail1">Nuevo Precio</label>
+                  <input type="number" class="form-control" id="newprecio" aria-describedby="emailHelp" placeholder="">
+                  <small id="emailHelp" class="form-text text-muted">Ingrese Nuevo Precio y Seleccione "Cambiar
+                    Precio".</small>
+                </div>
+              </div>
+              <div class="col-4"></div>
+            </div>
+  
+  
+          </div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+  
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-6">
+                <h4 class="text-center">Cambiar Descuento Por Tipo de Cliente</h4>
+                <div class="input-group">
+                  <select class="custom-select" id="tipocliente">
+  
+                  </select>
+                  <div class="input-group-append">
+                    <a onclick="cambiarDescuentoC()" class="btn btn-success text-white">Cambiar Descuento</a>
+                  </div>
+                </div>
+                <div class="form-group mt">
+                  <label for="exampleInputEmail1">Nuevo Descuento</label>
+                  <input type="number" class="form-control" id="newdescuento" aria-describedby="emailHelp" placeholder="">
+                  <small id="emailHelp" class="form-text text-muted">Ingrese Nuevo Descuento y Seleccione "Cambiar
+                    Descuento".</small>
+                </div>
+              </div>
+              <div class="col-4"></div>
+            </div>
+  
+          </div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-6">
+                <h4 class="text-center">Calcular Ganancias Segun un mes Especifico</h4>
+                <div class="input-group">
+                  <select class="custom-select" id="mesGanancias">
+                    <option value="0">Seleccione:</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                  </select>
+                  <div class="input-group-append">
+                    <a onclick="calcularGanancias()" class="btn btn-success text-white">Calcular Ganancias</a>
+                  </div>
+                </div>
+                <div class="form-group mt text-center">
+                  <label for="exampleInputEmail1">Total Ganancias Generadas</label>
+                  <input type="text" class="form-control text-center" id="ganancias" aria-describedby="emailHelp"
+                    placeholder="" disabled>
+                  <small id="emailHelp" class="form-text text-muted">Esta campo, muestra el total de ganancias del mes que
+                    seleccione.</small>
+                </div>
+              </div>
+              <div class="col-4"></div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+            <div class="row mt-2">
+              <div class="col-2"></div>
+              <div class="col-6 mt-2">
+                <h4 class="text-center">Ingresar un Nuevo Tipo de Habitacion</h4>
+                <div class="form-group text-center">
+                  <label for="exampleInputEmail1">Ingrese Descripcion Habitacion</label>
+                  <input type="text" class="form-control text-center" id="descrip_habita" aria-describedby="emailHelp"
+                    placeholder="" >
+                    <label for="exampleInputEmail1">Ingrese Precio Habitacion</label>
+                  <input type="number" class="form-control text-center" id="precio_habita" aria-describedby="emailHelp"
+                    placeholder="">
+                  <small id="emailHelp" class="form-text text-muted">Ingrese el costo que tendra la habitacion por dias.</small>
+                    <a onclick="insertarTipoHabita()" class="btn btn-success text-white">Añadir nueva habitacion</a>
+                </div>
+              </div>
+              <div class="col-4">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

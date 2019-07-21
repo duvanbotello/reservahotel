@@ -99,7 +99,9 @@ class Cliente {
                                 window.location.href = URL + "Principal/principalAdmin";
                                 toastr.success("Es administrador");
                             }else{
-                                localStorage.setItem("admin", response);
+                                console.log(item.tipo_empleado);
+                                localStorage.setItem("recep", response);
+                               window.location.href = URL + "Principal/principalRecep";
                                 toastr.success("Es Recepcionista");
                             }
                            
@@ -152,11 +154,33 @@ class Cliente {
         }
     }
 
+    userData4(URLactual) {
+        //si nos encontramos en el login elimino los datos de navegacion que estan en el navegador
+        //PATHNAME es una contante que inicie en config.js
+        if (PATHNAME == URLactual) {
+            //removemo los datos del navegador
+            localStorage.removeItem("recep");
+        } else {
+            if (null != localStorage.getItem("recep")) {
+                //convierto los datos del usuario que estan en el navegador en una coleccion de datos
+                let recep = JSON.parse(localStorage.getItem("recep"));
+                console.log(recep.idempleado);
+                if (0 < recep.idempleado) {
+                    //enviamos los datos al elemento con id name1
+                    document.getElementById("name2").innerHTML = "Bienvenido, " + recep.nombre + " " + recep.apellido;
+                }
+            }
+        }
+    }
+
     //funcionar para remover los datos almacenados en el navegador temporalmente
     sessionCLose() {
         localStorage.removeItem("user");
     }
     sessionCLoseAdmin() {
         localStorage.removeItem("admin");
+    }
+    sessionCLoseRecep() {
+        localStorage.removeItem("recep");
     }
 }

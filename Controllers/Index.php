@@ -12,11 +12,19 @@ class Index extends Controllers
         //la siguentes dos lineas se soluciona el error de si no sea creado ninguna variable de session
         $user = null;
         $user = isset($_SESSION["User"]);
+        $recep = null;
+        $admin = null;
+        $recep = isset($_SESSION["recep"]);
+        $admin = isset($_SESSION["admin"]);
         //verifico si esta iniciado el usuario
         //si esta iniciado el usuario no dejo que vuelva al login
         if (null != $user) {
             //envio a la vista principal
             header("Location:" . URL . "Principal/principal");
+        } else if (null != $recep) {
+            header("Location:" . URL . "Principal/principalRecep");
+        } else if (null != $admin) {
+            header("Location:" . URL . "Principal/administracion");
         } else {
             //ejecuto el metodo render de la libreria Views le paso el cotrolador y la vista como parametro
             require VIEWS . DFT . "head.html";
@@ -27,13 +35,17 @@ class Index extends Controllers
     public function indexAdministracion()
     {
         //la siguentes dos lineas se soluciona el error de si no sea creado ninguna variable de session
-        $user = null;
-        $user = isset($_SESSION["User"]);
+        $recep = null;
+        $admin = null;
+        $recep = isset($_SESSION["recep"]);
+        $admin = isset($_SESSION["admin"]);
         //verifico si esta iniciado el usuario
         //si esta iniciado el usuario no dejo que vuelva al login
-        if (null != $user) {
+        if (null != $admin) {
             //envio a la vista principal
             header("Location:" . URL . "Principal/administracion");
+        } else if (null != $recep) {
+            header("Location:" . URL . "Principal/principalRecep");
         } else {
             //ejecuto el metodo render de la libreria Views le paso el cotrolador y la vista como parametro
             require VIEWS . DFT . "head.html";
@@ -44,7 +56,7 @@ class Index extends Controllers
     //captura la informacion que se envia del cliente...
     public function userLogin()
     {
-        
+
         if (isset($_POST["email"]) && isset($_POST["password"])) {
 
             //vamos a utilizar el metodo userLogin del modelo index_model
@@ -52,7 +64,7 @@ class Index extends Controllers
             //utilizar todas las clases dentro de Models
             //y utilizo la instancia model para el metodo UserLogin que esta dentro de index_model
             $data = $this->model->userLogin($_POST["email"], $_POST["password"]);
-            
+
             //verificamos si es un array o contiene un array
             if (is_array($data)) {
                 echo json_encode($data);
@@ -66,7 +78,7 @@ class Index extends Controllers
     {
         //echo '<script>','alert("entre")','</script>';
         if (isset($_POST["usuario"]) && isset($_POST["password"])) {
-            
+
             $data = $this->model->userLoginadmin($_POST["usuario"], $_POST["password"]);
             if (is_array($data)) {
                 echo json_encode($data);

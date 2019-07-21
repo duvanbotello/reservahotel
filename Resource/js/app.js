@@ -102,6 +102,9 @@ var sessionClose = () => {
 var sessionCloseAdmin = () => {
   cliente.sessionCLoseAdmin();
 }
+var sessionCLoseRecep = () => {
+  cliente.sessionCLoseRecep();
+}
 
 
 var prueba = (this1) => {
@@ -141,6 +144,7 @@ $().ready(() => {
   //llamamos a metodo userData de Usuarios.js
   cliente.userData(URLactual);
   cliente.userData3(URLactual);
+  cliente.userData4(URLactual);
   //cargando SELECT HTML
   if (URLactual2 == URL + "Registrar/registrar") {
     registrar2.getRoles();

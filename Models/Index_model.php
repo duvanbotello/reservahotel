@@ -77,8 +77,17 @@ class Index_model extends Conexion
                         "apellido" => $response[0]["Apellido"],
                         "tipo_empleado" => $response[0]["tipo_empleado"],
                     );
+                    
                     //creo una variable de session y envio los datos del usuario
-                    Session::setSession("admin", $data);
+                    
+                    if($response[0]["tipo_empleado"] == 1){
+                        Session::setSession("admin", $data);
+                    }else{
+                        
+                        Session::setSession("recep", $data);
+                      
+                    }
+                    
                     return $data;
                 } else {
                     
