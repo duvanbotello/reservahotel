@@ -6,9 +6,7 @@
         <div class="col-md-4 col-xs-12">
             <!-- Inicio jumbotron -->
             <div class="jumbotron text-center">
-                <h2>Hotel El Alamo</h2>
-                <img width="200" height="200" class="img-thumbnail rounded-circle "
-                    src="http://localhost/profesional/Resource/images/login.png" alt="...">
+                <h2>Administracion Hotel Alamo</h2>
                 <hr class="">
                 <!-- Inicio Formulario Login -->
                 <form class="form" id="formIniciarSesion" method="POST">
@@ -16,23 +14,19 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text far fa-user"></div>
                         </div>
-                        <input type="text" class="form-control" id="email" placeholder="Corre Electronico" required>
+                        <input type="text" class="form-control" id="usuarioAdmin" placeholder="Usuario" required>
                     </div>
 
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text fas fa-key"></div>
                         </div>
-                        <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                        <input type="password" class="form-control" id="passwordAdmin" placeholder="Contraseña" required>
                     </div>
                     
                     <div class="pt-3">
-                        <a class="btn btn-outline-dark mb-2" onclick="iniciarSesion();">Iniciar Sesion</a>
-                        <a class="btn btn-outline-primary mb-2" onclick="vistraRegistrar();">Crear Cuenta</a>
-                    </div>
-
-                    <div class="text-center">
-                        <a href="http://localhost/profesional/Index/indexAdministracion">Ir panel de administracion</a>
+                        <a class="btn btn-outline-dark mb-2" onclick="iniciarSesionadmin();">Iniciar Sesion</a>
+                        
                     </div>
 
                 </form>

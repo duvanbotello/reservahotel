@@ -19,4 +19,17 @@ class Principal extends Controllers
             header("Location:" . URL);
         }
     }
+    public function principalAdmin()
+    {
+
+        if (null != Session::getSession("admin")) {
+            require VIEWS . DFT . "head.html";
+            require VIEWS . DFT . "headadmin.html";
+            $this->view->render($this, "principaladmin");
+            require VIEWS . DFT . "footer.html";
+        } else {
+            //redireccionamos el usuario a la vista login
+            header("Location:" . URL);
+        }
+    }
 }

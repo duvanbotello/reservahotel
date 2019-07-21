@@ -24,6 +24,23 @@ class Index extends Controllers
             require VIEWS . DFT . "footer.html";
         }
     }
+    public function indexAdministracion()
+    {
+        //la siguentes dos lineas se soluciona el error de si no sea creado ninguna variable de session
+        $user = null;
+        $user = isset($_SESSION["User"]);
+        //verifico si esta iniciado el usuario
+        //si esta iniciado el usuario no dejo que vuelva al login
+        if (null != $user) {
+            //envio a la vista principal
+            header("Location:" . URL . "Principal/administracion");
+        } else {
+            //ejecuto el metodo render de la libreria Views le paso el cotrolador y la vista como parametro
+            require VIEWS . DFT . "head.html";
+            $this->view->render($this, "padmin");
+            require VIEWS . DFT . "footer.html";
+        }
+    }
     //captura la informacion que se envia del cliente...
     public function userLogin()
     {
@@ -37,6 +54,20 @@ class Index extends Controllers
             $data = $this->model->userLogin($_POST["email"], $_POST["password"]);
             
             //verificamos si es un array o contiene un array
+            if (is_array($data)) {
+                echo json_encode($data);
+            } else {
+                echo $data;
+            }
+        }
+    }
+
+    public function userAdmin()
+    {
+        //echo '<script>','alert("entre")','</script>';
+        if (isset($_POST["usuario"]) && isset($_POST["password"])) {
+            
+            $data = $this->model->userLoginadmin($_POST["usuario"], $_POST["password"]);
             if (is_array($data)) {
                 echo json_encode($data);
             } else {

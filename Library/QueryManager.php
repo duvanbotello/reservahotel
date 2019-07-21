@@ -37,10 +37,15 @@ class QueryManager
             //utilizo la clase pdo para almacer el query en sth
             $sth = $this->pdo->prepare($query);
             //ejecuto el query
-            $sth->execute($param);
+            if($param == null){
+                $sth->execute();
+            }else{
+                $sth->execute($param);
+            }
+            
             //guardo todos los datos de la consulta dentro de un array
             $response = $sth->fetchALL(PDO::FETCH_ASSOC);
-
+            
             //retorno un array con el resultado
             return array("results" => $response);
         } catch (PDOExepcion $e) {
@@ -65,6 +70,36 @@ class QueryManager
         $pdo = null;
     }
 
+    function update($table, $where, $newvalue, $campo,$param)
+    {
+        try {
+            $query = "UPDATE " . $table . " SET " . $campo . " = " . $newvalue ." WHERE ".$where;
+            $sth = $this->pdo->prepare($query);
+            if ($sth->execute($param)) {
+                return 2;
+            } else {
+                return $sth;
+            }
+        } catch (PDOExepcion $e) {
+            return $e->getMessage();
+        }
+        $pdo = null;
+    }
+
+    function EstadoHabitacion($idhabitacion)
+    {
+
+        try {
+            $query = "UPDATE habitaciones SET estado = 1 WHERE idhabitaciones=$idhabitacion";
+            $sth = $this->pdo->prepare($query);
+            $sth->execute();
+            return $sth->execute();
+        } catch (PDOExepcion $e) {
+            return $e->getMessage();
+        }
+        $pdo = null;
+    }
+
     function getHabitaciones()
     {
 
@@ -82,18 +117,6 @@ class QueryManager
         }
         $pdo = null;
     }
-    function EstadoHabitacion($idhabitacion)
-    {
-
-        try {
-            $query = "UPDATE habitaciones SET estado = 1 WHERE idhabitaciones=$idhabitacion";
-            $sth = $this->pdo->prepare($query);
-            $sth->execute();
-            return $sth->execute();
-        } catch (PDOExepcion $e) {
-            return $e->getMessage();
-        }
-        $pdo = null;
-    }
+   
 }
 ?>

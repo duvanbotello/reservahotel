@@ -55,4 +55,41 @@ class Index_model extends Conexion
         }
         
     }
+
+    function userLoginadmin($usuario, $password)
+    {
+
+        $where = "usuario = :Usuario";
+        $param = array('Usuario' => $usuario);
+        $response = $this->db->select1("*", 'empleado', $where, $param);
+        if (is_array($response)) {
+            //le coloco un index al array llamado results
+            $response = $response['results'];
+            if (0 != count($response)) {
+               
+                //verifico que el password enviado desde la vista se igual al almacenado en la BD
+                if (password_verify($password, $response[0]["contrasena"]) && $response[0]["usuario"] == $usuario) {
+                  
+                    //si es correcto retorno un array con los datos del usuario.
+                    $data = array(
+                        "idempleado" => $response[0]["idempleado"],
+                        "nombre" => $response[0]["Nombre"],
+                        "apellido" => $response[0]["Apellido"],
+                        "tipo_empleado" => $response[0]["tipo_empleado"],
+                    );
+                    //creo una variable de session y envio los datos del usuario
+                    Session::setSession("admin", $data);
+                    return $data;
+                } else {
+                    
+                    return 1;
+                }
+            } else {
+                return 2;
+            }
+        } else { 
+            return $response;
+        }
+        
+    }
 }

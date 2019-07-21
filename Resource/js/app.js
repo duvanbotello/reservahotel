@@ -4,6 +4,7 @@
 var cliente = new Cliente();
 var registrar2 = new Registrar();
 var reserva = new Reserva();
+var gadmin = new Gadmin();
 //creamos una funcion para optener los datos y enviarlos al servidor.
 var iniciarSesion = () => {
   //optenemos los datos del formulario login.
@@ -12,6 +13,13 @@ var iniciarSesion = () => {
   var password = document.getElementById("password").value;
   //utilizamos el metodo loginuser de la clase usuario y le pasos el email y el password
   cliente.iniciarSesion(email, password);
+}
+
+var iniciarSesionadmin = () => {
+
+  var usuario = document.getElementById("usuarioAdmin").value;
+  var password = document.getElementById("passwordAdmin").value;
+  cliente.iniciarSesionAdmin(usuario, password);
 }
 
 var getHabita = () => {
@@ -42,12 +50,35 @@ var HacerReserva = () => {
 }
 
 var Misreservas = () => {
- 
   reserva.getMisReservas();
-  
-  
 }
 
+var CargarTipoCliente = () => {
+  gadmin.getTipoCliente();
+}
+
+var cambiarPrecioH = () =>{
+  let select = document.getElementById("tipohabitaciones");
+  let nuevoprecio = document.getElementById("newprecio");
+  gadmin.modificarPrecio(select,nuevoprecio);
+}
+var cambiarDescuentoC = () =>{
+  let select = document.getElementById("tipocliente");
+  let nuevodescuento = document.getElementById("newdescuento");
+  gadmin.modificarDescuento(select,nuevodescuento);
+}
+
+var calcularGanancias = () =>{
+  let select = document.getElementById("mesGanancias");
+  let ganancias = document.getElementById("ganancias");
+  gadmin.calcularGanancias(select,ganancias);
+}
+
+var insertarTipoHabita = () =>{
+  let descrip = document.getElementById("descrip_habita");
+  let precio = document.getElementById("precio_habita");
+  gadmin.calcularGanancias(select,ganancias);
+}
 
 var registrar = () => {
   var nombre = document.getElementById("c_nombre").value;
@@ -68,6 +99,10 @@ var registrar = () => {
 var sessionClose = () => {
   cliente.sessionCLose();
 }
+var sessionCloseAdmin = () => {
+  cliente.sessionCLoseAdmin();
+}
+
 
 var prueba = (this1) => {
   var valores = $(this1).parents("tr").find("td")[0].innerHTML;
@@ -105,11 +140,13 @@ $().ready(() => {
   let URLactual2 = window.location;
   //llamamos a metodo userData de Usuarios.js
   cliente.userData(URLactual);
+  cliente.userData3(URLactual);
   //cargando SELECT HTML
   if (URLactual2 == URL + "Registrar/registrar") {
     registrar2.getRoles();
   }
-
-
+  if (URLactual2 == URL + "Principal/principalAdmin") {
+    gadmin.getTipoHabitacion();
+  }
 
 });
