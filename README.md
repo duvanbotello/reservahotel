@@ -33,3 +33,5 @@ estará ocupada la habitación.
 
 *Además de ello debe utilizar el programa Balsamiq para modelar las interfaces del
 software a entregar.
+
+### Desarrollado por Duvan Botello:
