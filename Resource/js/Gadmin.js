@@ -125,7 +125,7 @@ class Gadmin {
                     let item = JSON.parse(response);
                     if (item.results[0].total != null) {
                         ganancias.value = "$" + item.results[0].total;
-                        
+
                     } else {
                         ganancias.value = "No hay ganancias este mes";
                     }
@@ -138,6 +138,39 @@ class Gadmin {
             }
 
             );
+        }
+    }
+
+    insertarTipoHabita(descrip, precio) {
+        if(descrip.value == ""){
+            toastr.warning('Por favor ingrese Descripcion');
+        }else{
+            if(precio.value == ""){
+                toastr.warning('Por favor ingrese precio')
+            }else{
+                var data = new FormData();
+                data.append('descrip', descrip.value);
+                data.append('precio', precio.value);
+                $.ajax({
+                    url: URL + "Gestionadmin/insertarTipoHabita",
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: (response) => {
+                        let item = JSON.parse(response);
+                        console.log(item);
+                        if(item == 2){
+                            toastr.success('registro Exitoso!!...');
+                            descrip.value = "";
+                            precio.value = "";
+                        }else{
+                            toastr.error('Error al registrar tipo habitacion!!...')
+                        }
+                    }
+                });
+            }
         }
     }
 }

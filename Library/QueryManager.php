@@ -69,6 +69,7 @@ class QueryManager
         }
         $pdo = null;
     }
+   
 
     function update($table, $where, $newvalue, $campo,$param)
     {

@@ -77,7 +77,7 @@ var calcularGanancias = () =>{
 var insertarTipoHabita = () =>{
   let descrip = document.getElementById("descrip_habita");
   let precio = document.getElementById("precio_habita");
-  gadmin.calcularGanancias(select,ganancias);
+  gadmin.insertarTipoHabita(descrip,precio);
 }
 
 var registrar = () => {

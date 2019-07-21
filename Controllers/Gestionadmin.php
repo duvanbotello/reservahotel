@@ -3,12 +3,11 @@
 class Gestionadmin extends Controllers
 {
     function __construct()
-    {   
+    {
         parent::__construct();
-        
     }
 
-   
+
 
     function getTipoHabitacion()
     {
@@ -31,31 +30,44 @@ class Gestionadmin extends Controllers
     }
 
 
-    public function ModificarPrecioH(){
-        $data = $this ->model->ModificarPrecioH($_POST["idtipo_habitacion"],$_POST["nuevoprecio"]);
-        if($data == 2){
+    public function ModificarPrecioH()
+    {
+        $data = $this->model->ModificarPrecioH($_POST["idtipo_habitacion"], $_POST["nuevoprecio"]);
+        if ($data == 2) {
             echo 2;
-        }else{
+        } else {
             echo $data;
         }
     }
 
-    public function ModificarDescuentoH(){
-        $data = $this ->model->ModificarDescuentoH($_POST["idtipo_cliente"],$_POST["nuevodescuento"]);
-        if($data == 2){
+    public function ModificarDescuentoH()
+    {
+        $data = $this->model->ModificarDescuentoH($_POST["idtipo_cliente"], $_POST["nuevodescuento"]);
+        if ($data == 2) {
             echo 2;
-        }else{
+        } else {
             echo $data;
         }
     }
 
-    public function calcularGanacias(){
-        $data = $this ->model->calcularGanacias($_POST["mes"]);
-        
-        if($data == 2){
+    public function calcularGanacias()
+    {
+        $data = $this->model->calcularGanacias($_POST["mes"]);
+
+        if ($data == 2) {
             echo 2;
-        }else{
+        } else {
             echo json_encode($data);
+        }
+    }
+
+    public function insertarTipoHabita()
+    {
+        $data = $this->model->insertarTipoHabita($_POST["descrip"], $_POST["precio"]);
+        if ($data == 2) {
+            echo 2;
+        } else {
+            echo $data;
         }
     }
 }
